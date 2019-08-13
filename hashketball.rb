@@ -140,29 +140,31 @@ def num_points_scored(name)
 end
 
 def shoe_size(name)
-  points = 0
+  size = 0
  
   game_hash.each do |team_name, team|
     player = team[:players].select { |player| player.has_key?(name) } 
     if !player.empty?
-      points = player[0][name][:shoe].to_i
+      size = player[0][name][:shoe].to_i
     end
   end
   
-  points
+  size
 end
 
 def team_colors(team_name)
-  points = 0
+  colors = []
  
   game_hash.each do |location, team|
-    colors = location[:team].select { |team| team.has_key?(team_name) } 
+    if team[:team_name] == team_name
+      colors = team[:colors]
+    end
     if !colors.empty?
-      colors = team[0][name][:]
+      colors = team[:colors]
     end
   end
   
-  points
+  colors
 end
 
 =begin
