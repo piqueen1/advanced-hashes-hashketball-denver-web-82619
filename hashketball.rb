@@ -6,7 +6,7 @@ def game_hash
     :team_name => "Brooklyn Nets",
     :colors => ["black", "white"],
     :players => [ 
-      { :name => "Alan Anderson",
+      "Alan Anderson" => {
         :number => "0",
         :shoe => "16",
         :points => 22,
@@ -16,7 +16,7 @@ def game_hash
         :blocks => 1,
         :slam_dunks => 1
       },
-      { :name => "Reggie Evans",
+      "Reggie Evans" => {
         :number => "30",
         :shoe => "14",
         :points => 12,
@@ -25,8 +25,9 @@ def game_hash
         :steals => 12,
         :blocks => 12,
         :slam_dunks => 7
+        }
       },
-      { :name => "Brook Lopez",
+      "Brook Lopez" => {
         :number => "11",
         :shoe => "17",
         :points => 17,
@@ -35,8 +36,9 @@ def game_hash
         :steals => 3,
         :blocks => 1,
         :slam_dunks => 15
+        }
       },
-      { :name => "Mason Plumlee",
+      "Mason Plumlee" => {
         :number => "1",
         :shoe => "19",
         :points => 26,
@@ -45,8 +47,9 @@ def game_hash
         :steals => 3,
         :blocks => 8,
         :slam_dunks => 5
+        }
       },
-      { :name => "Jason Terry",
+      "Jason Terry" => {
         :number => "31",
         :shoe => "15",
         :points => 19,
@@ -55,13 +58,14 @@ def game_hash
         :steals => 4,
         :blocks => 11,
         :slam_dunks => 1
+        }
       }]
     }
   teams[:away] = {
     :team_name => "Charlotte Hornets",
     :colors => ["Turquoise", "Purple"],
-    :players => [{
-        :name => "Jeff Adrien",
+    :players => [
+      "Jeff Adrien" => {
         :number => "4",
         :shoe => "18",
         :points => 10,
@@ -70,8 +74,9 @@ def game_hash
         :steals => 2,
         :blocks => 7,
         :slam_dunks => 2
+        }
       },
-      { :name => "Bismack Biyombo",
+      "Bismack Biyombo" => {
         :number => "0",
         :shoe => "16",
         :points => 12,
@@ -80,8 +85,9 @@ def game_hash
         :steals => 22,
         :blocks => 15,
         :slam_dunks => 10
+        }
       },
-      { :name => "DaSagna Diop",
+      "DaSagna Diop" => {
         :number => "2",
         :shoe => "14",
         :points => 24,
@@ -90,8 +96,9 @@ def game_hash
         :steals => 4,
         :blocks => 5,
         :slam_dunks => 5
+        }
       },
-      { :name => "Ben Gordon",
+      "Ben Gordon" => {
         :number => "8",
         :shoe => "15",
         :points => 33,
@@ -100,8 +107,9 @@ def game_hash
         :steals => 1,
         :blocks => 1,
         :slam_dunks => 0
+        }
       },
-      { :name => "Kemba Walker",
+      "Kemba Walker" => {
         :number => "33",
         :shoe => "15",
         :points => 6,
@@ -110,6 +118,7 @@ def game_hash
         :steals => 7,
         :blocks => 5,
         :slam_dunks => 12
+        }
       }]
     }
     
@@ -117,31 +126,18 @@ def game_hash
 end
 
 def num_points_scored(name)
-  points = false
+  points = 0
+  
+  #1,2,3,4,5].select { |num|  num.even?  }   #=> [2, 4]
   
   game_hash.each do |team_name, team|
-    team[:players].each do |player|
-      if player
-    end
-    
-    team.each do |stats, data|
-      if stats == :players
-        data.each do |player|
-          player.each do |player_name, category|
-            binding.pry
-            if player_name == name
-              points = category[:points]
-            end
-          end
-        end
-      end
+    player = team[:players].select { |player| player[:name] == name } 
+    if player
+      points = player[:points]
     end
   end
-  if points
-    return points
-  else
-    return "Sorry, no such name"
-  end
+  
+  points
 end
 
 =begin
