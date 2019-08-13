@@ -220,10 +220,13 @@ def big_shoe_rebounds
 end
 
 def most_points_scored
+  player
 end
 
 def winning_team
+  winners
 end
 
 def player_with_longest_name
+  longest_name
 end
