@@ -132,7 +132,7 @@ def num_points_scored(name)
     team_stats.each do |stat, data|
       if data.kind_of?(Array)
         data.each do |datum|
-          #binding.pry
+          binding.pry
           if datum == name
             points = datum[:name][:points]
           end
