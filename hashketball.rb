@@ -209,22 +209,6 @@ def big_shoe_rebounds
  
   game_hash.each do |team_name, team|
     team[:players].each do |player|
-        #binding.pry
-    
-=begin
-    ##here player means this:
-    => {"Alan Anderson"=>
-  {:number=>0,
-   :shoe=>16,
-   :points=>22,
-   :rebounds=>12,
-   :assists=>12,
-   :steals=>3,
-   :blocks=>1,
-   :slam_dunks=>1}}
-=end
-    
-       
       if player.values[0][:shoe] > max_size
         max_size = player.values[0][:shoe]
         matching_rebounds = player.values[0][:rebounds]
