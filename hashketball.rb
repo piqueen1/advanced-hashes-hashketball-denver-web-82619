@@ -133,7 +133,7 @@ def num_points_scored(name)
       if stats == :players
         data.each do |player|
           player.each do |player_name, category|
-            binding.pry
+            #binding.pry
             if player_name == name
               points = category[:points]
             end
