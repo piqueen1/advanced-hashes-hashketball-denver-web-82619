@@ -176,6 +176,13 @@ end
 
 def player_numbers(team_name)
   numbers = []
+  
+  game_hash.each do |team_name, team|
+    numbers << team[:players][:number]
+  end
+  
+  numbers
+end
 end
 
 =begin
