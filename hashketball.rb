@@ -207,14 +207,16 @@ def big_shoe_rebounds
   max_size = 0
   matching_rebounds = 0
  
-  game_hash.each do |team_name, team|
-    player = team[:players].select { |player| player.has_key?(name) } 
-    if !player.empty?
-      size = player[0][name][:shoe]
+  big_shoe_player = game_hash.each do |team_name, team|
+    player = team[:players].each do |player|
+      if player[:shoe] > max_size
+        max_size = player[:shoe]
+        matching_rebounds = player[:rebound]
+      end
     end
   end
   
-  size
+  matching_rebounds
 end
 
 
