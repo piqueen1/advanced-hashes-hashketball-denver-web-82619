@@ -190,6 +190,19 @@ def player_numbers(name)
   numbers
 end
 
+def player_stats(name)
+  stats = {}
+
+  game_hash.each do |team_name, team|
+    player = team[:players].select { |player| player.has_key?(name) } 
+    if !player.empty?
+      stats = player[0][name]
+    end
+  end
+  
+  stats
+end
+
 =begin
 def good_practices
   game_hash.each do |location, team_data|
