@@ -4,7 +4,7 @@ def game_hash
   teams = {}
   teams[:home] = {
     :team_name => "Brooklyn Nets",
-    :colors => ["black", "white"],
+    :colors => ["Black", "White"],
     :players => [ 
       {"Alan Anderson" => {
         :number => "0",
@@ -159,12 +159,19 @@ def team_colors(team_name)
     if team[:team_name] == team_name
       colors = team[:colors]
     end
-    if !colors.empty?
-      colors = team[:colors]
-    end
   end
   
   colors
+end
+
+def team_names
+  team_names = []
+  
+  game_hash.each do |location, team| 
+    team_names << team[:team_name]
+  end
+  
+  team_names
 end
 
 =begin
