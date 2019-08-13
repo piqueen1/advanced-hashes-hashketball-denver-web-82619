@@ -126,15 +126,17 @@ def game_hash
 end
 
 def num_points_scored(name)
-  points = -1
+  points = false
   
   game_hash.each do |team, team_stats|
-    team_stats.each do |stat, data|
-      if data.kind_of?(Array)
-        data.each do |datum|
-          binding.pry
-          if datum == name
-            points = datum[:name][:points]
+    team_stats.each do |stats, data|
+      if stats == :players
+        data.each do |player|
+          player.each do |player_name, category|
+            binding.pry
+            if player_name == name
+              points = category[:points]
+            end
           end
         end
       end
