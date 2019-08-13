@@ -132,8 +132,20 @@ def num_points_scored(name)
   game_hash.each do |team_name, team|
     player = team[:players].select { |player| player.has_key?(name) } 
     if !player.empty?
-      #binding.pry
       points = player[0][name][:points]
+    end
+  end
+  
+  points
+end
+
+def shoe_size(name)
+  points = 0
+ 
+  game_hash.each do |team_name, team|
+    player = team[:players].select { |player| player.has_key?(name) } 
+    if !player.empty?
+      points = player[0][name][:shoe]
     end
   end
   
