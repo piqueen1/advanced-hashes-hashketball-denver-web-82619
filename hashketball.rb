@@ -203,6 +203,21 @@ def player_stats(name)
   stats
 end
 
+def big_shoe_rebounds
+  max_size = 0
+  matching_rebounds = 0
+ 
+  game_hash.each do |team_name, team|
+    player = team[:players].select { |player| player.has_key?(name) } 
+    if !player.empty?
+      size = player[0][name][:shoe]
+    end
+  end
+  
+  size
+end
+end
+
 =begin
 def good_practices
   game_hash.each do |location, team_data|
