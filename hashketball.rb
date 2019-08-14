@@ -227,11 +227,11 @@ def most_points_scored
     team[:players].each do |player|
       if player.values[0][:points] > max_points
         max_points = player.values[0][:points]
-        name = player.values[0]
+        name = player.keys[0]
       end
     end
   end
-  player
+  name
 end
 
 def winning_team
