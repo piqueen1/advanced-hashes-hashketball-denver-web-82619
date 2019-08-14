@@ -241,8 +241,14 @@ def winning_team
   
   game_hash.each do |location, team|
    team_name = team[:team_name]
-   
-   binding.pry
+   team[:players].each do |player|
+    if location = "home"
+      home_points += player.values[0][points]
+    end
+    player.values[0][points]
+    
+    binding.pry
+   end
   end
   
   winner
