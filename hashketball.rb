@@ -243,12 +243,14 @@ def winning_team
    team_name = team[:team_name]
    team[:players].each do |player|
     if location = "home"
-      home_points += player.values[0][points]
+      home_points += player.values[0][:points]
+    else
+      away_points += player.values[0][:points]
     end
-    player.values[0][points]
-    
-    binding.pry
-   end
+   end  
+   
+    winner = home_points > away_points ? "Home" : "Away"
+    #binding.pry
   end
   
   winner
