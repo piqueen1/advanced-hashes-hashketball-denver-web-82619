@@ -249,8 +249,8 @@ def winning_team
     end
    end  
    
-    winner = home_points > away_points ? "Home" : "Away"
-    #binding.pry
+    winner = home_points > away_points ? game_hash[:teams] : game_hash
+    binding.pry
   end
   
   winner
