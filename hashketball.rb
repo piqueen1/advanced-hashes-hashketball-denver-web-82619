@@ -249,13 +249,24 @@ def winning_team
     end
    end  
    
-    winner = home_points > away_points ? game_hash[:teams] : game_hash
-    binding.pry
+    winner = home_points > away_points ? game_hash[:home][:team_name] : game_hash[:away][:team_name]
+    #binding.pry
   end
   
   winner
 end
 
 def player_with_longest_name
-  longest_name
+  longest_name = ""
+  characters = 0
+  
+  game_hash.each do |location, team|
+    team[:players].each do |player|
+      if player[:name].count > characters
+        longest_name = player[:name]
+        characters = player[:name].count
+      end
+    end
+  end
 end
+
