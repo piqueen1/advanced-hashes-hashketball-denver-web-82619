@@ -262,11 +262,18 @@ def player_with_longest_name
   
   game_hash.each do |location, team|
     team[:players].each do |player|
-      if player[:name].count > characters
-        longest_name = player[:name]
-        characters = player[:name].count
+      #binding.pry
+      
+      if player.keys[0].length > characters
+        longest_name = player.keys[0]
+        characters = player.keys[0].length
       end
     end
   end
+  
+  longest_name
 end
 
+def long_name_steals_a_ton?
+  
+end
