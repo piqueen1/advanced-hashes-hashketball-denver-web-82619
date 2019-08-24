@@ -284,10 +284,14 @@ def long_name_steals_a_ton?
 
       if player[player.keys[0]][:steals] > most_steals
         most_steals = player[player.keys[0]][:steals]
+<<<<<<< HEAD
+=======
+        name = player[player.keys[0]][:name]
+>>>>>>> 721fc5367d299df40e87458df99ce6530295c971
       end
     end
   end
-  
+  binding.pry
   game_hash.each do |team_name, team|
     team[:players].each do |player|
               
